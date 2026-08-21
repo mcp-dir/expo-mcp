@@ -1,0 +1,33 @@
+# Smithery configuration for Expo
+# Schema: https://smithery.ai/docs/build/project-config
+# Remote HTTP MCP — server hosted at https://api.mcp.ai/p_expo
+
+name: expo-mcp
+displayName: "Expo"
+description: >
+  Seu projeto Expo e EAS por linguagem natural: documentação atualizada do SDK, builds na nuvem (status, logs, disparar e cancelar), workflows EAS de CI, envio pras lojas e dados de TestFlight (crashes e feedback). Conecte sua conta Expo em um clique, sem chave nem token.
+
+version: 0.1.0
+license: MIT
+homepage: https://github.com/mcp-dir/expo-mcp
+repository: https://github.com/mcp-dir/expo-mcp
+
+tags:
+  - expo
+  - brazil
+  - horizontal
+  - read-write
+
+# Remote HTTP MCP — sem startCommand local (servidor já hospedado)
+startCommand:
+  type: http
+  url: https://api.mcp.ai/p_expo
+
+auth:
+  type: oauth2
+  resourceMetadataUrl: https://api.mcp.ai/p_expo/.well-known/oauth-protected-resource
+  fallback:
+    type: agent-auth
+    description: >
+      Para clientes sem OAuth 2.1. O agente expõe uma tool authenticate(token).
+      Usuário gera o JWT em https://app.mcp.ai/agent-auth e cola no chat.
